@@ -2368,7 +2368,7 @@ def render_stress_testing() -> None:
         fig_dd.add_trace(
             go.Scatter(
                 x=dd.index, y=dd.values,
-                fill="tozeroy", fillcolor=f"{spec['color']}28",
+                fill="tozeroy", fillcolor="rgba(37,99,235,0.15)",
                 line=dict(color=spec["color"], width=1.3),
                 name=spec["label"], showlegend=False,
                 hovertemplate="%{y:.2f}%<extra></extra>",
