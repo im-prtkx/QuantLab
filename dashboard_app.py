@@ -1572,7 +1572,14 @@ def chart_scenario_equity_curves(scenario_curves: dict[str, pd.Series]) -> go.Fi
         **_base_layout("Scenario Cumulative Returns (%)"),
         yaxis_ticksuffix="%",
         hovermode="x unified",
-        legend=dict(x=0.01, y=0.02),
+    )
+    fig.update_layout(
+        legend=dict(
+            x=0.01,
+            y=0.98,
+            bgcolor="rgba(0,0,0,0)",
+            borderwidth=0,
+        )
     )
     return fig
 
