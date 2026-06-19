@@ -2006,7 +2006,7 @@ def render_monte_carlo() -> None:
     fig_conv.add_trace(go.Scatter(
         x=list(dates) + list(dates[::-1]),
         y=list(path_mean + path_std) + list((path_mean - path_std)[::-1]),
-        fill="toself", fillcolor=f"{COBALT}20",
+        fill="toself", fillcolor="rgba(37,99,235,0.12)",
         line=dict(width=0), showlegend=True, name="Mean ± 1σ",
         hoverinfo="skip",
     ))
