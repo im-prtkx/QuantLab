@@ -1286,8 +1286,16 @@ def chart_equity_curve(
         yaxis_tickprefix="$",
         yaxis_tickformat=",.0f",
         hovermode="x unified",
-        legend=dict(x=0.01, y=0.98),
     )
+    fig.update_layout(
+        legend=dict(
+            x=0.01,
+            y=0.98,
+            bgcolor="rgba(0,0,0,0)",
+            borderwidth=0,
+        )
+    )
+            
     return fig
 
 
