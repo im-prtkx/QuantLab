@@ -1271,7 +1271,7 @@ def chart_equity_curve(
         name="Portfolio",
         line=dict(color=COBALT2, width=2.2),
         fill="tozeroy",
-        fillcolor=f"{COBALT}18",
+        fillcolor="rgba(37,99,235,0.10)",
         hovertemplate="<b>Portfolio</b>: $%{y:,.0f}<extra></extra>",
     ))
     if benchmark is not None:
