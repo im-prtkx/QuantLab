@@ -1357,8 +1357,8 @@ def chart_monthly_returns_heatmap(returns: pd.Series) -> go.Figure:
     ))
     fig.update_layout(
         **_base_layout("Monthly Return Heatmap (%)"),
-        xaxis=dict(side="top"),
     )
+    fig.update_xaxes(side="top")
     return fig
 
 
