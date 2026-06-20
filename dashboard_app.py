@@ -776,29 +776,41 @@ def render_sidebar() -> None:
             unsafe_allow_html=True,
         )
 
-        st.markdown(f'<div class="ql-section-header">Research</div>', unsafe_allow_html=True)
-
-        research_pages = [
-            ("📊", "Portfolio Builder"),
-            ("⚡", "Risk Analytics"),
-            ("🎯", "Portfolio Optimization"),
-        ]
-        for icon, page in research_pages:
-            if st.button(f"{icon}  {page}", key=f"nav_{page}", use_container_width=True):
-                st.session_state.page = page
-                st.rerun()
-
         st.markdown(
             f'<div class="ql-section-header" style="margin-top:16px;">Simulation</div>',
             unsafe_allow_html=True,
         )
+
         simulation_pages = [
             ("📈", "Backtesting"),
             ("🎲", "Monte Carlo"),
             ("🌩", "Stress Testing"),
         ]
+
         for icon, page in simulation_pages:
-            if st.button(f"{icon}  {page}", key=f"nav_{page}", use_container_width=True):
+             if st.button(
+                f"{icon}  {page}",
+                key=f"nav_{page}",
+                use_container_width=True,
+        ):
+            st.session_state.page = page
+            st.rerun()
+
+        st.markdown(
+            f'<div class="ql-section-header" style="margin-top:16px;">Intelligence</div>',
+            unsafe_allow_html=True,
+        )
+
+        intelligence_pages = [
+                ("🧭", "Regime Intelligence"),
+        ]
+
+        for icon, page in intelligence_pages:
+            if st.button(
+                f"{icon}  {page}",
+                key=f"nav_{page}",
+                use_container_width=True,
+            ):
                 st.session_state.page = page
                 st.rerun()
 
