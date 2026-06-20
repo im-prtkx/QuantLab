@@ -2464,8 +2464,56 @@ def render_stress_testing() -> None:
         "Stress testing page rendered | %d scenarios | horizon=%dY",
         len(scenarios), horizon_years,
     )
+def render_regime_intelligence() -> None:
+    """
+    Regime Intelligence Dashboard
+    """
 
+    page_header(
+        "Regime Intelligence",
+        "Detect current market regime and adapt portfolio decisions."
+    )
 
+    tickers = st.session_state.tickers
+
+    if not tickers:
+        st.warning("Build a portfolio first.")
+        return
+
+    try:
+        prices = (
+            st.session_state.prices_df
+            if st.session_state.prices_df is not None
+            else get_price_data(tuple(tickers))
+        )
+
+        close_prices = prices.copy()
+
+        result = detect_market_regime(close_prices)
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.metric("Current Regime", result.regime.value)
+
+        with col2:
+            st.metric("Volatility", f"{result.volatility:.2%}")
+
+        with col3:
+            st.metric("Trend", f"{result.trend:.2%}")
+
+        st.markdown("---")
+
+        st.subheader("Regime Description")
+        st.info(regime_description(result.regime))
+
+        st.subheader("Confidence")
+        st.progress(float(result.confidence))
+
+        st.caption(f"Confidence: {result.confidence:.0%}")
+
+    except Exception as e:
+        st.error(f"Regime detection failed: {e}")
 # ===========================================================================
 # APPLICATION ENTRY POINT
 # ===========================================================================
