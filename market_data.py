@@ -1,5 +1,5 @@
 """
-QuantLab - Market Data Module
+Atlas Portfolio Intelligence - Market Data Module
 ==============================
 Institutional-grade market data acquisition layer for historical price data,
 ETF analytics, and index benchmarks using the yfinance API.
